@@ -78,15 +78,117 @@ from payment as p
 inner join customer as c on c.customer_id = p.customer_id
 group by c.customer_id
 order by c.last_name, c.first_name;
--- 7a. The music of Queen and Kris Kristofferson have seen an unlikely resurgence. As an unintended consequence, films starting with the letters K and Q have also soared in popularity. Use subqueries to display the titles of movies starting with the letters K and Q whose language is English. 
+-- 7a. The music of Queen and Kris Kristofferson have seen an unlikely resurgence. As an unintended consequence, films starting with the 
+-- letters K and Q have also soared in popularity. Use subqueries to display the titles of movies 
+-- starting with the letters K and Q whose language is English.
+
+select title
+from film
+where language_id in
+(
+	SELECT language_id
+    FROM language
+    where name = 'English')
+AND title like "K%" or title like "Q%";
+ 
 -- 7b. Use subqueries to display all actors who appear in the film Alone Trip.
--- 7c. You want to run an email marketing campaign in Canada, for which you will need the names and email addresses of all Canadian customers. Use joins to retrieve this information.
+select first_name, last_name
+from actor
+where actor_id in
+(
+	SELECT actor_id
+    From film_actor
+    where film_id in
+	(
+		SELECT film_id
+        FROM film
+        where title = 'ALONE TRIP'
+        )
+	);
+-- 7c. You want to run an email marketing campaign in Canada, for which you will need the names and email addresses of all Canadian customers.
+--  Use joins to retrieve this information.
+select cust.first_name, cust.last_name, cust.email
+from customer as cust
+INNER JOIN address as a ON
+	a.address_id = cust.address_id
+INNER JOIN city as c ON
+	c.city_id = a.city_id
+INNER JOIN country ON
+	country.country_id = c.country_id
+WHERE country.country = 'CANADA';
+
 -- 7d. Sales have been lagging among young families, and you wish to target all family movies for a promotion. Identify all movies categorized as family films.
+select f.title, cat.name as category
+from film as f
+JOIN film_category as filmcat on
+	filmcat.film_id = f.film_id
+JOIN category as cat on
+	cat.category_id = filmcat.category_id
+WHERE cat.name = 'Family';
 -- 7e. Display the most frequently rented movies in descending order.
+select f.title, count(rent.rental_id) as Times_Rented
+from film as f
+JOIN inventory as i on
+	i.film_id = f.film_id
+JOIN rental as rent on
+	rent.inventory_id = i.inventory_id
+GROUP by f.title
+Order by count(rent.rental_id) DESC;
 -- 7f. Write a query to display how much business, in dollars, each store brought in.
+Select a.address, sum(p.amount) as Store_GrossRevenue
+FROM address as a
+JOIN store as s ON
+	s.address_id = a.address_id
+JOIN staff on
+	staff.store_id = s.store_id
+JOIN payment as p on
+	p.staff_id = staff.staff_id
+group by a.address
+Order by sum(p.amount) DESC;
 -- 7g. Write a query to display for each store its store ID, city, and country.
+select s.store_id, c.city, country.country
+from store as s
+join address as a on
+	a.address_id = s.address_id
+join city as c on
+	c.city_id = a.city_id
+join country on
+	country.country_id = c.country_id;
+
 -- 7h. List the top five genres in gross revenue in descending order. (Hint: you may need to use the following tables: category, film_category, inventory, payment, and rental.)
--- 8a. In your new role as an executive, you would like to have an easy way of viewing the Top five genres by gross revenue. Use the solution from the problem above to create a view. If you haven't solved 7h, you can substitute another query to create a view.
+Select cat.name, sum(p.amount) as Gross_Revenue
+from film_category as filmcat
+join inventory as i on
+	filmcat.film_id = i.film_id
+join rental as rent on
+	i.inventory_id = rent.inventory_id
+join payment as p on
+	p.rental_id = rent.rental_id
+join category as cat on
+	filmcat.category_id = cat.category_id
+group by cat.name
+order by sum(p.amount) DESC
+limit 5;
+
+-- 8a. In your new role as an executive, you would like to have an easy way of viewing the Top five genres by gross revenue. 
+-- Use the solution from the problem above to create a view. 
+-- If you haven't solved 7h, you can substitute another query to create a view.
+create view Top_5_Genres_GrossRev as
+Select cat.name, sum(p.amount) as Gross_Revenue
+from film_category as filmcat
+join inventory as i on
+	filmcat.film_id = i.film_id
+join rental as rent on
+	i.inventory_id = rent.inventory_id
+join payment as p on
+	p.rental_id = rent.rental_id
+join category as cat on
+	filmcat.category_id = cat.category_id
+group by cat.name
+order by sum(p.amount) DESC
+limit 5;
 -- 8b. How would you display the view that you created in 8a?
+SELECT * from top_5_genres_grossrev;
 -- 8c. You find that you no longer need the view top_five_genres. Write a query to delete it.
+drop view top_5_genres_grossrev;
 
