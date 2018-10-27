@@ -67,8 +67,17 @@ from film_actor as a
 inner join film as f on f.film_id = a.film_id
 group by f.title;
 
--- 6d. How many copies of the film Hunchback Impossible exist in the inventory system? 
+-- 6d. How many copies of the film Hunchback Impossible exist in the inventory system? Answer = 6
+select f.title, count(i.inventory_id) as Hunchback_Impossible_Copies
+from inventory as i
+inner join film as f on f.film_id = i.film_id
+where f.title = 'HUNCHBACK IMPOSSIBLE';
 -- 6e. Using the tables payment and customer and the JOIN command, list the total paid by each customer. List the customers alphabetically by last name:  ![Total amount paid](Images/total_payment.png) 
+select c.first_name, c.last_name, sum(p.amount) as Total_Paid
+from payment as p
+inner join customer as c on c.customer_id = p.customer_id
+group by c.customer_id
+order by c.last_name, c.first_name;
 -- 7a. The music of Queen and Kris Kristofferson have seen an unlikely resurgence. As an unintended consequence, films starting with the letters K and Q have also soared in popularity. Use subqueries to display the titles of movies starting with the letters K and Q whose language is English. 
 -- 7b. Use subqueries to display all actors who appear in the film Alone Trip.
 -- 7c. You want to run an email marketing campaign in Canada, for which you will need the names and email addresses of all Canadian customers. Use joins to retrieve this information.
