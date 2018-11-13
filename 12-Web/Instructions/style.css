@@ -65,3 +65,7 @@ p {
   width: 500px;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
+
+#font_default {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
