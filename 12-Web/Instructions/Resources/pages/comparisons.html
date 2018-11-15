@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Humidity</title>
+  <title>Bootstrap Visualization Dashboard</title>
+  <link rel="stylesheet" href="reset.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="..\assets\css\style.css">
 </head>
@@ -60,19 +61,36 @@
       </div>
     </div>
   </nav>
-  <div class="container">
-      <div id="font_default" class="row">
-        <div class ='col-md-5' id="block1">
-          <h1 style="font-size:24px">Latitude vs. Humidity</h1>
-          <p>Humidity tends to peaks at cities near the equator around -20° to 20° Latitude.
-            There is also clustering of high humidity (60-100%) around cities in the northern hemisphere (20°-80° Latitude).</p>
-        </div>
-      <div class="row">
-          <div class ='col-md-6' id="block2">
-            <img class="img_display" src="..\assets\images\Fig2.png" alt="oops">
-        </div>
-      </div>
+<div class="container" id="font_default">
+  <div class="row">
+    <h1 class="center" style="font-size:34px; background-color:#D8D8D8">Comparisons: Latitude vs. X</h1>
+    <p class ="center" style="background-color:#D8D8D8">Click any plot to get an in-depth analysis</p>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-6">
+      <h2>vs. Max Temperature</h2>
+      <a href="latvtemp.html"><img class="img_display_comp" src="..\assets\images\Fig1.png" alt="oops"></a>
+    </div>
+    <div class="col-md-6">
+      <h2>vs. Cloudiness</h2>
+      <a href="cloud.html"><img class="img_display_comp" src="..\assets\images\Fig3.png" alt="oops"></a>
     </div>
   </div>
- </body>
+  <br>
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Humidity</h2>
+      <a href="humid.html"><img class="img_display_comp" src="..\assets\images\Fig2.png" alt="oops"></a>
+    </div>
+    <div class="col-md-6">
+      <h2>vs. Wind Speed</h2>
+      <a href="wind.html"><img class="img_display_comp" src="..\assets\images\Fig4.png" alt="oops"></a>
+    </div>
+
+  </div>
+</div>
+
+</body>
+
 </html>

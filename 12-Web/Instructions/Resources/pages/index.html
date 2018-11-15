@@ -13,8 +13,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="..\assets\js\bootstrap.min.js"></script>
-  <nav id=font_default class="navbar navbar-default">
-    <div class="container-fluid">
+  <nav id="nav-select-lg" class="navbar navbar-default">
+    <div id ="font_default" class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="index.html">
         <span class="glyphicon glyphicon-home" aria-hidden="false"></span> Home</a>
@@ -33,6 +33,30 @@
             </ul>
           </li>
         </ul>
+      </div>
+    </div>
+  </nav>
+  <nav id="nav-select-small" class="navbar navbar-default">
+    <div id ="font_default" class="container-fluid">
+      <div class="navbar-header" id="float_middle">
+        <a class="navbar-brand" href="index.html">
+        <span class="glyphicon glyphicon-home" aria-hidden="false"></span> Latitude vs X</a>
+      </div>
+      <div class="float_right">
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <span class="glyphicon glyphicon-menu-hamburger"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="data.html">Data</a></li>
+            <li><a href="comparisons.html">Comparisons</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="latvtemp.html">Max Temperature</a></li>
+            <li><a href="cloud.html">Cloudiness</a></li>
+            <li><a href="humid.html">Humidity</a></li>
+            <li><a href="wind.html">Wind Speed</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </nav>
