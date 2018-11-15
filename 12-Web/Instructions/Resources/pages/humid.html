@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Humidity</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="..\assets\css\style.css">
+</head>
+
+
+<body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="..\assets\js\bootstrap.min.js"></script>
+  <nav id=font_default class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="index.html">
+        <span class="glyphicon glyphicon-home" aria-hidden="false"></span> Home</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="data.html">Data</a></li>
+          <li><a href="comparisons.html">Comparisons</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Graphs <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="latvtemp.html">Max Temperature</a></li>
+              <li><a href="cloud.html">Cloudiness</a></li>
+              <li><a href="humid.html">Humidity</a></li>
+              <li><a href="wind.html">Wind Speed</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+      <div id="font_default" class="row">
+        <div class ='col-md-5' id="block1">
+          <h1>Humidity vs. Maximum Temperature</h1>
+          <p>The purpose of this project was to visualize how the weather of 500+ cities across the world changes in relation to the distance from the equator.</p>
+        </div>
+      <div class="row">
+          <div class ='col-md-6' id="block2">
+            <img class="img_display" src="..\assets\images\Fig2.png" alt="oops">
+        </div>
+      </div>
+    </div>
+  </div>
+ </body>
+</html>

@@ -1,7 +1,7 @@
 h1  {
   color: #19194d;
   background-color: #F5F5F5;
-  font: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font: Circular, Helvetica, Arial, sans-serif;
   padding: 20px 10px;
   margin: 0;
   font-size: 28px;
@@ -12,6 +12,21 @@ body {
   background-color: #D8D8D8;
   margin: 0;
   padding: 10px 0;
+}
+
+table {
+  background-color: #F5F5F5
+}
+
+th {
+  text-align: center;
+}
+
+.img_display {
+  display: block;
+  margin: auto;
+  width: 550px;
+  height: 400px;
 }
 
 p {
