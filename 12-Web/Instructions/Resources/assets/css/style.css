@@ -48,12 +48,6 @@ p {
   display: table;
 }
 
-hr {
-  margin-top: 0px;
-  margin-bottom: 0px;
-  border-color: #19194d;
-}
-
 #block1 {
   float: left;
   background-color: #F5F5F5;

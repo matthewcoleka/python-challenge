@@ -5,31 +5,31 @@
   <meta charset="UTF-8">
   <title>Bootstrap Visualization Dashboard</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="..\assets\css\style.css">
 </head>
 
 
 <body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="C:\Users\matth\Desktop\GitFolder\Bootstrap\bootstrap-3.3.7-dist\js\bootstrap.min.js"></script>
+  <script src="..\assets\js\bootstrap.min.js"></script>
   <nav id=font_default class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="C:\Users\matth\Desktop\GitFolder\hw\python-challenge\12-Web\Instructions\index.html">
+        <a class="navbar-brand" href="index.html">
         <span class="glyphicon glyphicon-home" aria-hidden="false"></span> Home</a>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Data</a></li>
-          <li><a href="#">Comparisons</a></li>
+          <li><a href="data.html">Data</a></li>
+          <li><a href="comparisons.html">Comparisons</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Graphs <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="https://www.facebook.com/">Graph 1</a></li>
-              <li><a href="https://www.facebook.com/">Graph 2</a></li>
-              <li><a href="https://www.facebook.com/">Graph 3</a></li>
-              <li><a href="https://www.facebook.com/">Graph 4</a></li>
+              <li><a href="latvtemp.html">Max Temperature</a></li>
+              <li><a href="cloud.html">Cloudiness</a></li>
+              <li><a href="humid.html">Humidity</a></li>
+              <li><a href="wind.html">Wind Speed</a></li>
             </ul>
           </li>
         </ul>
@@ -38,7 +38,7 @@
   </nav>
   <div class="container">
       <div class="row">
-        <div id="block1">
+        <div class ='col-md-7' id="block1">
           <h1>Summary: Latitude vs. X</h1>
           <p>The purpose of this project was to visualize how the weather of 500+ cities across the world changes in relation to the distance from the equator.</p>
           <p>To accomplish this, we used the OpenWeatherMap API to pull data into a Pandas dataframe. Next, we used Matplotlib to plot various weather attributes versus each city's latitude.
@@ -46,18 +46,19 @@
           <p>This site provides visualizations, each with a description, the data used for analysis, and our overall findings. Please use the navigator menu above to explore!</p>
         </div>
       <div class="row">
-          <div id="block2">
+          <div class ='col-md-4' id="block2">
             <h1>Visualizations</h1>
             <div class="imgblock">
-              <img src="C:\Users\matth\Desktop\GitFolder\hw\python-challenge\12-Web\Instructions\Resources\assets\images\Fig1.png" alt="oops" style="width:100%">
-              <img src="C:\Users\matth\Desktop\GitFolder\hw\python-challenge\12-Web\Instructions\Resources\assets\images\Fig2.png" alt="oops" style="width:100%">
+              <img src="..\assets\images\Fig1.png" alt="oops" style="width:100%">
+              <img src="..\assets\images\Fig2.png" alt="oops" style="width:100%">
             </div>
             <div class="imgblock">
-              <img src="C:\Users\matth\Desktop\GitFolder\hw\python-challenge\12-Web\Instructions\Resources\assets\images\Fig3.png" alt="oops" style="width:100%">
-              <img src="C:\Users\matth\Desktop\GitFolder\hw\python-challenge\12-Web\Instructions\Resources\assets\images\Fig4.png" alt="oops" style="width:100%">
+              <img src="..\assets\images\Fig3.png" alt="oops" style="width:100%">
+              <img src="..\assets\images\Fig4.png" alt="oops" style="width:100%">
             </div>
         </div>
       </div>
     </div>
   </div>
 </body>
+</html>
