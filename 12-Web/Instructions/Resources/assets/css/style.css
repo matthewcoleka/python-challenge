@@ -1,13 +1,22 @@
 h1  {
   color: #19194d;
   background-color: #F5F5F5;
-  font: Circular, Helvetica, Arial, sans-serif;
+  font: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   padding: 20px 10px;
   margin: 0;
   font-size: 28px;
   font-weight: bold;
 }
 
+h2 {
+    color: #19194d;
+    font: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    padding: 20px 10px;
+    margin: 0;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
 body {
   background-color: #D8D8D8;
   margin: 0;
@@ -27,6 +36,19 @@ table {
   margin: auto;
   width: 550px;
   height: 400px;
+}
+
+.img_display_comp {
+  display: block;
+  margin: auto;
+  width: 300px;
+  height: 200px;
+}
+
+.center {
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px
 }
 
 p {
@@ -81,4 +103,50 @@ p {
 
 #font_default {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+#nav-select-lg {
+  visibility: visible;
+}
+
+#nav-select-small {
+  visibility: collapse;
+}
+
+@media (max-width:767px) {
+
+
+  #nav-select-lg {
+    visibility: collapse;
+  }
+
+  #nav-select-small {
+    visibility: visible;
+  }
+
+  #nav-select-small nav {
+    display: block;
+    align-items: center;
+  }
+
+  #font_default {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  }
+  .float_right {
+    display: inline-block;
+    vertical-align: middle;
+    width: 50%;
+  }
+  button {
+    display: block;
+    vertical-align: middle;
+    float: right;
+  }
+  .float_middle {
+    display: block;
+    vertical-align: middle;
+    float: right;
+  }
+
+
 }
