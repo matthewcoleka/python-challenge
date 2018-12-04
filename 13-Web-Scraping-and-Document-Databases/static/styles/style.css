@@ -1,0 +1,11 @@
+h1 {
+  color: #0b3d91;
+}
+
+#feat_img {
+  float: left;
+  vertical-align: middle;
+  display: block;
+  width: 300px;
+  height: 200px;
+}

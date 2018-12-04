@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mars Facts</title>
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="\scrape" role="button">Click Here!</a></p>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        {% for x in data%}
+          <h1>Latest Mars News</h1>
+          <h4>{{ x.news_title }}</h4>
+          <p>{{ x.news_p}}</p>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Featured Image -->
+    <div class="row" id="feat_img">
+      <div class="col-md-6">
+        <h1>Featured Mars Image</h1>
+        {% for x in data%}
+        <img src="{{ x.jpl_featured_image }}" alt="JPL featured_image_url" style="width:500px;height:300px;">
+        {% endfor %}
+      </div>
+      <div class="col-md-6">
+
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>
