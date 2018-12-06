@@ -22,11 +22,23 @@ date_btn.on("click", function() {
   //Filter data on input date
   var filteredData = tableData.filter(tableData => tableData.datetime === input_date);
   //Populate Table Data
-  filteredData.forEach((ufo) => {
-    var row = tbody.append("tr");
-    Object.entries(ufo).forEach(([key, value]) => {
-      var cell = tbody.append("td");
-      cell.text(value);
+  //Condition if input is blank
+  if (input_date === "") {
+    tableData.forEach((ufo) => {
+      var row = tbody.append("tr");
+      Object.entries(ufo).forEach(([key, value]) => {
+        var cell = tbody.append("td");
+        cell.text(value);
+      });
     });
-  });
+  //Condition if input has date
+  } else {
+    filteredData.forEach((ufo) => {
+      var row = tbody.append("tr");
+      Object.entries(ufo).forEach(([key, value]) => {
+        var cell = tbody.append("td");
+        cell.text(value);
+      });
+    });
+  }
 });
