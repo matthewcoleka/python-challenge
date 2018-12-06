@@ -12,12 +12,14 @@ var date_btn = d3.select("#filter-btn");
 
 
 date_btn.on("click", function() {
+
   //Prevent Refresh
   d3.event.preventDefault();
-  //Show Input date
+  //Remove Existing Table Data
+  d3.select("tbody").html("")
+  //Select Input date
   var input_date = d3.select("#datetime").property("value");
-  console.log(input_date);
-  //Filtered data
+  //Filter data on input date
   var filteredData = tableData.filter(tableData => tableData.datetime === input_date);
   //Populate Table Data
   filteredData.forEach((ufo) => {
