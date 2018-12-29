@@ -3,6 +3,24 @@ var tableData = data;
 
 // YOUR CODE HERE!
 
+//Select unique items in datetime
+var dates_unique = tableData.map(item => item.datetime)
+  .filter((value, index, self) => self.indexOf(value) === index);
+var city_unique = tableData.map(item => item.city)
+  .filter((value, index, self) => self.indexOf(value) === index);
+var state_unique = tableData.map(item => item.state)
+  .filter((value, index, self) => self.indexOf(value) === index);
+var country_unique = tableData.map(item => item.country)
+  .filter((value, index, self) => self.indexOf(value) === index);
+var shape_unique = tableData.map(item => item.shape)
+  .filter((value, index, self) => self.indexOf(value) === index);
+
+console.log(dates_unique);
+console.log(city_unique);
+console.log(state_unique);
+console.log(country_unique);
+console.log(shape_unique);
+
 
 //Get reference to table body
 var tbody = d3.select("tbody");
