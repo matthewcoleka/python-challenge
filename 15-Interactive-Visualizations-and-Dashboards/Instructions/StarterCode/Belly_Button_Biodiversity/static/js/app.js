@@ -21,14 +21,46 @@ function buildMetadata(sample) {
   });
 }
 function buildCharts(sample) {
-
+  var url = "/samples/"+sample;
   // @TODO: Use `d3.json` to fetch the sample data for the plots
-
+  d3.json(url).then(function(data) {
     // @TODO: Build a Bubble Chart using the sample data
-
+    var max_marker_size = 100;
+    var bubble_trace = {
+      x:data.otu_ids,
+      y:data.sample_values,
+      text:data.otu_labels,
+      mode: 'markers',
+      marker: {
+        color: data.otu_ids,
+        size: data.sample_values,
+        sizeref:2.0*Math.max(...data.sample_values) /
+        (max_marker_size**2),
+        sizemode: 'area'
+      }
+    };
+    var bubble_data = [bubble_trace];
+    var bubble_layout = {
+      xaxis: {title:"OTU ID"}
+    };
+    Plotly.newPlot("bubble", bubble_data, bubble_layout);
     // @TODO: Build a Pie Chart
+    data.sample_values.sort(function(a,b) {
+      return b - a;
+    });
+    var pie_data = [{
+      values: data.sample_values.slice(0,10),
+      labels: data.otu_ids.slice(0,10),
+      type: 'pie',
+      hovertext: data.otu_labels.slice(0,10)
+    }];
+    // var pie_layout = {
+    //
+    // }
+    Plotly.newPlot('pie', pie_data);
     // HINT: You will need to use slice() to grab the top 10 sample_values,
     // otu_ids, and labels (10 each).
+  });
 }
 
 function init() {
