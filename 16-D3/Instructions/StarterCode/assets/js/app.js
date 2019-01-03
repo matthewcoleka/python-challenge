@@ -54,8 +54,10 @@ d3.csv("../data/data.csv")
     chartGroup.append("g")
       .call(leftAxis);
 
+
+
     //Create circles
-    var circlesGroup = chartGroup.selectAll("circle")
+    var circlesGroup = chartGroup.append("g").selectAll("circle")
       .data(healthData)
       .enter()
       .append("circle")
@@ -63,20 +65,20 @@ d3.csv("../data/data.csv")
       .attr("cy", d => yLinearScale(d.income))
       .attr("r", "15")
       .attr("fill", "blue")
-      .attr("opacity", "0.5");
+      .attr("opacity", "0.5")
 
     //Add State labels
     //Add the SVG Text Element to the svgContainer
-    
 
     //Initialize tool toolTip
 
     var toolTip = d3.tip()
       .attr("class", "tooltip")
-      .offset([75,80])
+      .offset([0,0])
       .html(function(d){
         return (`${d.abbr}<br>Percent Obese: ${d.obesity}<br>Average Income: ${d.income}`);
-      });
+      })
+      .attr("style", "text-align:center");
     chartGroup.call(toolTip);
 
     //Event listeners
@@ -86,19 +88,39 @@ d3.csv("../data/data.csv")
     circlesGroup.on("mouseout", function(data,index) {
       toolTip.hide(data);
     });
+
+
     // Create axes labels
     chartGroup.append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", 0 - margin.left + 40)
-      .attr("x", 0 - (height / 2))
+      .attr("y", 0 - margin.left + 30)
+      .attr("x", 0 - (height / 1.5))
       .attr("dy", "1em")
       .attr("class", "axisText")
       .text("Average Income ($)");
 
     chartGroup.append("text")
-      .attr("transform", `translate(${width / 2}, ${height + margin.top + 30})`)
+      .attr("transform", `translate(${width / 2.5}, ${height + margin.top + 30})`)
       .attr("class", "axisText")
       .text("Percent Obese (%)");
+
+  // Adding Labels
+
+    chartGroup.append("g").selectAll("text")
+      .data(healthData)
+      .enter()
+      .append("text")
+      .attr("x", function(d) {
+        return xLinearScale(d.obesity) - 9;
+      })
+      .attr("y", d => yLinearScale(d.income) + 5)
+      .attr("fill", "white")
+      .attr("font-size", "12px")
+      .merge(chartGroup)
+      .text(function(d){
+        return d.abbr;
+      });
+
 
 
   });
